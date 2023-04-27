@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atv2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+
+</head>
+<body class="text-center">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<main class="form-signin w-100 m-auto">
+    <form>
+        <img class="mb-4" src="logo.png" alt="" width="150" height="150">
+        <h1 class="h2 mb-3 fw-normal">Calcular média do Aluno</h1>
+
+    <div class="row top">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+
+        <div class="form-floating">
+            <input type="text" class="form-control" id="nome" placeholder="Nome do Aluno"><br>
+            <label for="floatingInput">Nome do aluno</label>
+        </div>
+        <div class="form-floating">
+            <input type="Number" class="form-control" id="nota1" placeholder="Nota1">
+            <label for="floatingPassword">Primeira Nota</label><br>
+        </div>
+        <div class="form-floating">
+            <input type="Number" class="form-control" id="nota2" placeholder="Nota2">
+            <label for="floatingPassword">Segunda nota</label><br>
+        </div>
+    
+        <button onclick="calcular()" class="w-100 btn btn-lg btn-primary" type="calcular()">Calcular</button><br>
+        <br><p class="h4 mb-3 fw-normal">A Média do aluno é: <span id="r"></span></p>
+
+        </div>
+    </div>
+    
+        <p class="mt-5 mb-3 text-body-secondary">&copy; Daniel Barbosa</p>
+        
+    </form>
+</main>
+<script>
+    function calcular(){
+    // console.log("testsss");
+    var nome = document.getElementById("nome").value;
+    console.log(nome);
+    var nota1 = document.getElementById("nota1").valueAsNumber;
+    var nota2 = document.getElementById("nota2").valueAsNumber;
+    console.log(nota1);
+    var resultado;
+
+    resultado = (nota1+nota2)/2;
+    if(resultado >= 6){
+        console.log("entrou f");
+        // alert(resultado);
+        document.getElementById("r").innerHTML = resultado
+            Swal.fire({
+                icon: 'success',
+                title: 'Aprovado ',
+                text: 'A média do aluno é ' + resultado,
+                timer: 3000000
+            })
+    }else{
+        
+        console.log("entrou m");
+        // alert(resultado);
+        document.getElementById("r").innerHTML = resultado
+            Swal.fire({
+                icon: 'error',
+                title: 'Reprovado ',
+                text: nome + ' precisa melhorar',
+                timer: 3000000
+                })
+    }
+    
+  
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script> 
+  
+
+</body>
+</html>
